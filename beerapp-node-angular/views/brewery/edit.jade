@@ -1,0 +1,39 @@
+extends ../layout
+block content
+
+  if is_create
+    h3 Create Brewery
+  else
+    h3 Editing #{brewery.name}
+    
+  form(method="post" action="")
+    fieldset
+      legend General Info
+      .span12
+        .span6
+          input(type="hidden" name="brewery_type" value="brewery")
+          label Name
+          input(type="text" name="brewery_name" placeholder="The name of the brewery" value="#{brewery.name}")
+          label Description
+          input(type="text" name="brewery_description" placeholder="A short description" value="#{brewery.description}")
+        .span6
+          label City
+          input(type="text" name="brewery_city" placeholder="Germany? England? USA?" value="#{brewery.city}")
+          label State
+          input(type="text" name="brewery_state" placeholder="Baden Wurtemburg? Cheshire?" value="#{brewery.state}")
+    fieldset
+      legend Details
+      .span12
+        .span6
+          label Code
+          input(type="text" name="brewery_code" placeholder="The brewery's ABV" value="#{brewery.code}")
+          label Country
+          input(type="text" name="brewery_country" placeholder="The brewery's IBU" value="#{brewery.country}")
+        .span6
+          label Phone
+          input(type="text" name="brewery_phone" placeholder="The brewery's Phone Number" value="#{brewery.phone}")
+          label Website
+          input(type="text" name="brewery_website" placeholder="The brewery's UPC" value="#{brewery.website}")
+    
+    .form-actions
+      button(type="submit" class="btn btn-primary") Save changes
